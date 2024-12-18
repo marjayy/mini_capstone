@@ -1,3 +1,12 @@
+<?php
+$size;
+if (isset($_GET['size'])) {
+    $size = $_GET['size'];
+} else {
+    echo "No size selected.";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -98,7 +107,7 @@
             <img src="image/polo.png" alt="IT Polo Shirt">
             <div class="cart-details">
                 <h5>IT POLO SHIRT</h5>
-                <p>Size: XL</p>
+                <p>Size: <?php echo htmlspecialchars($size) ?></p>
                 <p>P 550.00</p>
                 <p>192 pieces available</p>
             </div>
