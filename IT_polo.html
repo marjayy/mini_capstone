@@ -222,7 +222,7 @@
   </div>
 
      <!-- Cart Dropdown -->
-     <div class="cart-dropdown" id="cart-dropdown">
+     <div class="cart-dropdown" id="cart-dropdown"  onclick="goToCart()">
       <div class="cart-item">
           <img src="image/polo.png" alt="IT Polo Shirt">
           <div class="cart-item-details">
@@ -279,6 +279,11 @@
     setTimeout(() => {
       cartDropdown.style.display = "none";
     }, 10000);
+  }
+
+  function goToCart() {
+      // Redirect to cart.php with selected size as a query parameter
+      window.location.href = `cart.php?size=${selectedSize}`;
   }
 
   // Show/hide cart dropdown when cart icon is clicked
