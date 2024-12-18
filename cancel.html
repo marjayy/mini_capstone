@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IT Polo Shirt</title>
+  <link rel="shortcut icon" type="x-icon" href="image/cpc.png">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+   body {
+      background-color: #ffffff;
+    }
+
+    .header {
+      background-color: #000000;
+      color: #ffffff;
+      padding: 10px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed; /* Make the header fixed at the top */
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000; /* Ensure it stays on top */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: adds a shadow under the header */
+    }
+
+    .header .logo {
+      font-size: 24px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+
+    .header .logo img {
+      max-width: 55px;
+      margin-right: 10px;
+    }
+
+    .header .logo1 img {
+        max-width: 160px;
+        margin-left: 64px;
+        
+    }
+
+    .header .icons {
+      display: flex;
+      align-items: center;
+    }
+
+    .header .icons i {
+      font-size: 20px;
+      margin-left: 20px;
+      cursor: pointer;
+    }
+
+    .header .icons i:hover {
+      color: #ddd;
+    }
+
+    .dashboard-section {
+      padding: 20px;
+    }
+
+    .cart-container {
+      margin-top: 5px;
+      max-width: 1000px;
+      padding-top: 5%;
+    }
+    
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #ffffff;
+      padding: 15px 0;
+    }
+
+    .cart-item img {
+      width: 190px;
+      height: 220px;
+      object-fit: cover;
+      margin-left: 7%;
+    }
+
+    .cart-item-details {
+      flex-grow: 2;
+      padding-left: 15px;
+      padding-top: -5px;
+    }
+
+    .btn {
+      font-size: 17px;
+      font-weight: bold;
+      background-color: #000;
+      color: white;
+      margin-right: 10%;
+      border-radius: 0;
+      width: 20%;
+    }
+
+    .btn-checkout {
+      margin-right: 50px;
+    }
+    
+    
+    
+  </style>
+</head>
+<body>
+ <!-- Header -->
+ <div class="header">
+  <div class="logo">
+    <img src="image/cpc.png" alt="CPC Logo" onclick="navigateTo('user_dashboard.html')"> 
+  </div>
+  <div class="logo1">
+      <img src="image/logo1.png" alt="ESSEN Logo"  onclick="navigateTo('user_dashboard.html')"> 
+    </div>
+  <div class="icons">
+      <i class="bi bi-cart-dash-fill"></i>
+    <i class="bi bi-bell-fill"></i>   
+    <i class="bi bi-person-circle"></i>
+    <i class="bi bi-power" onclick="logoutUser()"></i>
+  </div>
+</div>
+
+  
+<div class="container cart-container">
+  <div class="card">
+    <div class="card-body">
+      
+      <!-- Cart Items -->
+      <div class="cart-item">
+        <img src="image/polo.png" alt="IT Polo Shirt">
+        <div class="cart-item-details">
+          <h5>IT POLO SHIRT</h5>
+          <p>Size: XL</p>
+          <p>P 550.00</p>
+        <p class="text-muted mt-2">1 piece(s)</p>
+        </div>
+        <button class="btn">CANCEL</button>
+      </div>
+
+      <div class="cart-item">
+        <img src="image/polo.png" alt="IT Polo Shirt">
+        <div class="cart-item-details">
+          <h5>IT POLO SHIRT</h5>
+          <p>Size: XL</p>
+          <p>P 550.00</p>
+        <p class="text-muted mt-2">1 piece(s)</p>
+        </div>
+        <button class="btn">CANCEL</button>
+      </div>
+
+
+     <div class="cart-item">
+        <img src="image/polo.png" alt="IT Polo Shirt">
+        <div class="cart-item-details">
+          <h5>IT POLO SHIRT</h5>
+          <p>Size: XL</p>
+          <p>P 550.00</p>
+        <p class="text-muted mt-2">1 piece(s)</p>
+        </div>
+        <button class="btn">CANCEL</button>
+      </div>
+
+     
+      
+
+<script>
+  // Handle Select All Checkbox
+  const selectAllCheckbox = document.getElementById("select-all");
+  const itemCheckboxes = document.querySelectorAll(".cart-checkbox");
+
+  selectAllCheckbox.addEventListener("change", () => {
+    itemCheckboxes.forEach(checkbox => {
+      checkbox.checked = selectAllCheckbox.checked;
+    });
+  });
+
+  // Update Total Dynamically
+  const totalPrice = document.querySelector(".cart-summary p");
+  itemCheckboxes.forEach(checkbox => {
+    checkbox.addEventListener("change", () => {
+      const selectedItems = Array.from(itemCheckboxes).filter(checkbox => checkbox.checked);
+      totalPrice.textContent = `Total (${selectedItems.length} Item): P ${selectedItems.length * 550}.00`;
+    });
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
